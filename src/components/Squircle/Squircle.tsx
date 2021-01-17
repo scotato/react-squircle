@@ -41,7 +41,7 @@ function SquircleShape(props: SquircleShapeProps) {
   );
 }
 
-export function Squircle(
+function Squircle(
   props: SquircleProps & React.HTMLAttributes<HTMLDivElement> & HTMLElement
 ) {
   const [ref, bounds] = useMeasure();
@@ -69,3 +69,5 @@ export function Squircle(
     />
   );
 }
+
+export default Squircle;

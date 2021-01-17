@@ -1,7 +1,7 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Squircle } from '../.';
+import Squircle from '../.';
 
 const P1 = 4;
 const P2 = 16;
