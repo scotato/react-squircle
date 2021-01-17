@@ -35,7 +35,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-squircle",
+  "name": "@scotato/react-squircle",
   "author": "Scott Dodge",
   "module": "dist/react-squircle.esm.js",
   "size-limit": [
