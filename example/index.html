@@ -4,7 +4,152 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Playground</title>
+    <title>squircle</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 32px 128px;
+        box-sizing: border-box;
+        min-height: 100vh;
+        background: rgb(131, 58, 180);
+        background: linear-gradient(
+          323deg,
+          rgba(131, 58, 180, 1) 0%,
+          rgba(253, 29, 29, 1) 50%,
+          rgba(252, 176, 69, 1) 100%
+        );
+      }
+
+      .app {
+        display: grid;
+        margin: 0 auto;
+        grid-template-columns: 1fr 4fr;
+        min-height: calc(100vh - 64px);
+        min-width: 640px;
+        max-width: 1600px;
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar {
+        display: grid;
+        grid-row-gap: 16px;
+        grid-template-rows: 16px 32px auto 1fr;
+        padding: 16px;
+        background-color: hsl(240 30% 90%);
+      }
+
+      .window-controls {
+        display: grid;
+        grid-template-columns: 14px 14px 14px;
+        grid-column-gap: 8px;
+      }
+
+      .window-close,
+      .window-minimize,
+      .window-maximize {
+        width: 14px;
+        height: 14px;
+        border-radius: 16px;
+      }
+
+      .window-close {
+        background-color: hsl(0 100% 70%);
+      }
+
+      .window-minimize {
+        background-color: hsl(55 95% 70%);
+      }
+
+      .window-maximize {
+        background-color: hsl(130 60% 60%);
+      }
+
+      .search {
+        height: 32px;
+        background-color: hsl(240 30% 85%);
+      }
+
+      .menu {
+        display: grid;
+        grid-row-gap: 8px;
+      }
+
+      .menu-item {
+        background-color: hsl(240 30% 95%);
+        height: 32px;
+      }
+
+      .user {
+        display: grid;
+        margin-top: auto;
+        grid-template-columns: 48px auto;
+        grid-column-gap: 8px;
+        height: 48px;
+      }
+
+      .user-avatar {
+        background-color: hsl(240 30% 85%);
+      }
+
+      .user-details {
+        background-color: hsl(240 30% 85%);
+      }
+
+      .body {
+        display: grid;
+        grid-row-gap: 16px;
+        grid-template-rows: 3fr 2fr auto;
+        padding: 32px;
+        background-color: white;
+        overflow: hidden;
+      }
+
+      .banner {
+        background-color: hsl(240 30% 95%);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 16px;
+      }
+
+      .featured-item {
+        background-color: hsl(240 30% 95%);
+        height: 100%;
+      }
+
+      .category {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 16px;
+      }
+
+      .items {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-row-gap: 8px;
+        height: 100%;
+      }
+
+      .item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-column-gap: 8px;
+      }
+
+      .item-image {
+        background-color: hsl(240 30% 95%);
+        width: 48px;
+        height: 48px;
+      }
+
+      .item-details {
+        background-color: hsl(240 30% 95%);
+        height: 48px;
+      }
+    </style>
   </head>
 
   <body>
