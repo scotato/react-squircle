@@ -9,7 +9,6 @@
     <style>
       body {
         margin: 0;
-        padding: 32px 128px;
         box-sizing: border-box;
         min-height: 100vh;
         background: rgb(131, 58, 180);
@@ -21,11 +20,19 @@
         );
       }
 
+      #root {
+        display: grid;
+        padding: 32px 128px;
+        min-height: calc(100vh - 64px);
+        grid-template-rows: 1fr auto;
+        grid-row-gap: 16px;
+      }
+
       .app {
         display: grid;
         margin: 0 auto;
         grid-template-columns: 1fr 4fr;
-        min-height: calc(100vh - 64px);
+        width: 100%;
         min-width: 640px;
         max-width: 1600px;
         box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
@@ -83,9 +90,9 @@
       .user {
         display: grid;
         margin-top: auto;
-        grid-template-columns: 48px auto;
+        grid-template-columns: 32px auto;
         grid-column-gap: 8px;
-        height: 48px;
+        height: 32px;
       }
 
       .user-avatar {
@@ -148,6 +155,14 @@
       .item-details {
         background-color: hsl(240 30% 95%);
         height: 48px;
+      }
+
+      .squircle-controls {
+        display: grid;
+        padding: 16px 24px;
+        background-color: hsl(240 30% 90%);
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 32px;
       }
     </style>
   </head>
