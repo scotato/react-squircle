@@ -80,6 +80,36 @@ const ExampleC = () => {
   );
 };
 
+const ExampleMask = () => {
+  const { state } = React.useContext(Context);
+  const { C } = state;
+
+  return (
+    <div className="dashboard-column dashboard-mask">
+      <h1>Mask</h1>
+      <SquircleMask c={C}>
+        <SquircleMask c={C}>
+          <SquircleMask c={C}>
+            <SquircleMask c={C}>
+              <SquircleMask c={C}>
+                <SquircleMask c={C}>
+                  <SquircleMask c={C}>
+                    <SquircleMask c={C}>
+                      <SquircleMask c={C}>
+                        <SquircleMask c={C} />
+                      </SquircleMask>
+                    </SquircleMask>
+                  </SquircleMask>
+                </SquircleMask>
+              </SquircleMask>
+            </SquircleMask>
+          </SquircleMask>
+        </SquircleMask>
+      </SquircleMask>
+    </div>
+  );
+};
+
 const SquircleControlsR = () => {
   const { state, dispatch } = React.useContext(Context);
   const setValue = type => e => dispatch({ type, payload: e.target.value });
@@ -162,6 +192,7 @@ const App = () => {
         <ExampleR />
         <ExampleP />
         <ExampleC />
+        <ExampleMask />
       </div>
     </ContextProvider>
   );
