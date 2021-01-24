@@ -10,21 +10,14 @@
       body {
         margin: 0;
         box-sizing: border-box;
-        min-height: 100vh;
-        background: rgb(131, 58, 180);
-        background: linear-gradient(
-          323deg,
-          rgba(131, 58, 180, 1) 0%,
-          rgba(253, 29, 29, 1) 50%,
-          rgba(252, 176, 69, 1) 100%
-        );
+        font-family: monospace;
       }
 
       #root {
         display: grid;
         padding: 32px 128px;
         min-height: calc(100vh - 64px);
-        grid-template-rows: 1fr auto;
+        grid-template-rows: 1fr auto auto;
         grid-row-gap: 16px;
       }
 
@@ -157,12 +150,51 @@
         height: 48px;
       }
 
+      .dashboard {
+        display: grid;
+        margin: 0 auto;
+      }
+
+      .dashboard-column {
+        display: grid;
+        grid-row-gap: 16px;
+      }
+
+      .dashboard-r path {
+        fill: rgb(252, 176, 69);
+      }
+
+      .dashboard-p path {
+        fill: rgb(253, 29, 29);
+      }
+
+      .dashboard-c path {
+        fill: rgb(131, 58, 180);
+      }
+
       .squircle-controls {
         display: grid;
-        padding: 16px 24px;
-        background-color: hsl(240 30% 90%);
-        grid-template-columns: 1fr 1fr;
+        margin-top: auto;
+        grid-template-columns: 96px 1fr;
         grid-column-gap: 32px;
+        grid-row-gap: 8px;
+      }
+
+      .squircle-repeater {
+        display: grid;
+        grid-auto-flow: column;
+        grid-column-gap: 16px;
+        grid-auto-columns: 1fr;
+      }
+
+      .gradient {
+        background: rgb(131, 58, 180);
+        background: linear-gradient(
+          323deg,
+          rgba(131, 58, 180, 1) 0%,
+          rgba(253, 29, 29, 1) 50%,
+          rgba(252, 176, 69, 1) 100%
+        );
       }
     </style>
   </head>

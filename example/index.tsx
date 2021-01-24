@@ -1,86 +1,120 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Squircle from '../.';
-import { ContextProvider, Context } from './Context';
+import { Squircle, SquircleMask } from '../.';
+import { ContextProvider, Context } from './components/Context';
 
-const Window = ({ children }) => {
-  const { state } = React.useContext(Context);
+interface SquircleRepeaterProps {
+  r1?: number;
+  r2?: number;
+  p1?: number;
+  p2?: number;
+  c?: number;
+  width?: number;
+  height: number;
+  count: number;
+}
 
+const SquircleRepeater = (props: SquircleRepeaterProps) => {
+  const { count = 1, ...rest } = props;
   return (
-    <Squircle p1={state.P1} p2={state.P2} className="app">
-      {children}
-    </Squircle>
-  );
-};
-
-const Sidebar = ({ children }) => <div className="sidebar">{children}</div>;
-
-const Search = () => {
-  const { state } = React.useContext(Context);
-  return <Squircle p1={state.P1} p2={state.P2} className="search" />;
-};
-
-const WindowControls = () => (
-  <div className="window-controls">
-    <div className="window-close" />
-    <div className="window-minimize" />
-    <div className="window-maximize" />
-  </div>
-);
-
-const Menu = () => {
-  const { state } = React.useContext(Context);
-  return (
-    <div className="menu">
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
+    <div className="squircle-repeater">
+      {Array.from({ length: count }, (_, i) => (
+        <Squircle key={i} {...rest} />
+      ))}
     </div>
   );
 };
 
-const User = () => {
+const ExampleR = () => {
   const { state } = React.useContext(Context);
+  const { R1, R2 } = state;
+
   return (
-    <div className="user">
-      <Squircle p1={state.P1} p2={state.P2} className="user-avatar" />
-      <Squircle p1={state.P1} p2={state.P2} className="user-details" />
+    <div className="dashboard-column dashboard-r">
+      <h1>R</h1>
+      <SquircleRepeater r1={R1} r2={R2} height={384} count={1} />
+      <SquircleRepeater r1={R1} r2={R2} height={256} count={2} />
+      <SquircleRepeater r1={R1} r2={R2} height={128} count={4} />
+      <SquircleRepeater r1={R1} r2={R2} height={64} count={8} />
+      <SquircleRepeater r1={R1} r2={R2} height={48} width={48} count={16} />
+      <SquircleRepeater r1={R1} r2={R2} height={16} width={16} count={32} />
+      <SquircleControlsR />
     </div>
   );
 };
 
-const Body = ({ children }) => <div className="body">{children}</div>;
+const ExampleP = () => {
+  const { state } = React.useContext(Context);
+  const { P1, P2 } = state;
 
-const Banner = () => {
-  const { state } = React.useContext(Context);
-  return <Squircle p1={state.P1} p2={state.P2} className="banner" />;
-};
-const Features = ({ children }) => <div className="features">{children}</div>;
-const FeaturedItem = () => {
-  const { state } = React.useContext(Context);
-  return <Squircle p1={state.P1} p2={state.P2} className="featured-item" />;
-};
-const Category = ({ children }) => <div className="category">{children}</div>;
-const Items = ({ children }) => <div className="items">{children}</div>;
-const Item = () => {
-  const { state } = React.useContext(Context);
   return (
-    <div className="item">
-      <Squircle p1={state.P1} p2={state.P2} className="item-image" />
-      <Squircle p1={state.P1} p2={state.P2} className="item-details" />
+    <div className="dashboard-column dashboard-p">
+      <h1>P</h1>
+      <SquircleRepeater p1={P1} p2={P2} height={384} count={1} />
+      <SquircleRepeater p1={P1} p2={P2} height={256} count={2} />
+      <SquircleRepeater p1={P1} p2={P2} height={128} count={4} />
+      <SquircleRepeater p1={P1} p2={P2} height={64} count={8} />
+      <SquircleRepeater p1={P1} p2={P2} height={48} width={48} count={16} />
+      <SquircleRepeater p1={P1} p2={P2} height={16} width={16} count={32} />
+      <SquircleControlsP />
     </div>
   );
 };
 
-const SquircleControls = () => {
+const ExampleC = () => {
+  const { state } = React.useContext(Context);
+  const { C } = state;
+
+  return (
+    <div className="dashboard-column dashboard-c">
+      <h1>C</h1>
+      <SquircleRepeater c={C} height={384} count={1} />
+      <SquircleRepeater c={C} height={256} count={2} />
+      <SquircleRepeater c={C} height={128} count={4} />
+      <SquircleRepeater c={C} height={64} count={8} />
+      <SquircleRepeater c={C} height={48} width={48} count={16} />
+      <SquircleRepeater c={C} height={16} width={16} count={32} />
+      <SquircleControlsC />
+    </div>
+  );
+};
+
+const SquircleControlsR = () => {
   const { state, dispatch } = React.useContext(Context);
   const setValue = type => e => dispatch({ type, payload: e.target.value });
 
   return (
-    <Squircle p1={state.P1} p2={state.P2} className="squircle-controls">
+    <div className="squircle-controls">
+      <span>R1: {Number.parseFloat(state.R1).toFixed(3)}</span>
+      <input
+        type="range"
+        min="0"
+        max="0.5"
+        step=".001"
+        value={state.R1}
+        onChange={setValue('setR1')}
+      />
+      <span>R2: {Number.parseFloat(state.R2).toFixed(3)}</span>
+      <input
+        type="range"
+        min="0"
+        max="0.5"
+        step=".001"
+        value={state.R2}
+        onChange={setValue('setR2')}
+      />
+    </div>
+  );
+};
+
+const SquircleControlsP = () => {
+  const { state, dispatch } = React.useContext(Context);
+  const setValue = type => e => dispatch({ type, payload: e.target.value });
+
+  return (
+    <div className="squircle-controls">
+      <span>P1: {state.P1}</span>
       <input
         type="range"
         min="0"
@@ -89,6 +123,7 @@ const SquircleControls = () => {
         value={state.P1}
         onChange={setValue('setP1')}
       />
+      <span>P2: {state.P2}</span>
       <input
         type="range"
         min="0"
@@ -97,48 +132,37 @@ const SquircleControls = () => {
         value={state.P2}
         onChange={setValue('setP2')}
       />
-    </Squircle>
+    </div>
+  );
+};
+
+const SquircleControlsC = () => {
+  const { state, dispatch } = React.useContext(Context);
+  const setValue = type => e => dispatch({ type, payload: e.target.value });
+
+  return (
+    <div className="squircle-controls">
+      <span>C: {state.C}</span>
+      <input
+        type="range"
+        min="1"
+        max="10"
+        step="1"
+        value={state.C}
+        onChange={setValue('setC')}
+      />
+    </div>
   );
 };
 
 const App = () => {
   return (
     <ContextProvider>
-      <>
-        <Window>
-          <Sidebar>
-            <WindowControls />
-            <Search />
-            <Menu />
-            <User />
-          </Sidebar>
-          <Body>
-            <Banner />
-            <Features>
-              <FeaturedItem />
-              <FeaturedItem />
-            </Features>
-            <Category>
-              <Items>
-                <Item />
-                <Item />
-                <Item />
-              </Items>
-              <Items>
-                <Item />
-                <Item />
-                <Item />
-              </Items>
-              <Items>
-                <Item />
-                <Item />
-                <Item />
-              </Items>
-            </Category>
-          </Body>
-        </Window>
-        <SquircleControls />
-      </>
+      <div className="dashboard">
+        <ExampleR />
+        <ExampleP />
+        <ExampleC />
+      </div>
     </ContextProvider>
   );
 };

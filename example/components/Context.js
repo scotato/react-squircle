@@ -12,6 +12,21 @@ function reducer(state, action) {
         ...state,
         P2: action.payload || initialState.P2,
       };
+    case 'setR1':
+      return {
+        ...state,
+        R1: action.payload || initialState.R1,
+      };
+    case 'setR2':
+      return {
+        ...state,
+        R2: action.payload || initialState.R2,
+      };
+    case 'setC':
+      return {
+        ...state,
+        C: action.payload || initialState.C,
+      };
     default:
       throw new Error();
   }
@@ -20,9 +35,10 @@ function reducer(state, action) {
 const initialState = {
   P1: 4,
   P2: 8,
+  R1: 0.0586,
+  R2: 0.332,
+  C: 5,
 };
-
-export { reducer, initialState };
 
 const Context = createContext([{}, () => {}]);
 

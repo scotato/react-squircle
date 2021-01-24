@@ -1,7 +1,5 @@
-import Squircle, {
-  SquircleProps as Props,
+export {
+  Squircle,
+  SquircleMask,
+  SquircleProps,
 } from './components/Squircle/Squircle';
-
-export type SquircleProps = Props;
-
-export default Squircle;
