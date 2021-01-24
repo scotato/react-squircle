@@ -8,30 +8,34 @@ interface createSquirclePathProps {
   c?: number
 }
 
+const RATIO = 0.17650602409638552
+
 function radiusFromC (c?: number) {
+  const byRatio = (val: number) => ({ r1: val * RATIO, r2: val })
+
   switch (Number(c)) {
     case 1:
-      return { r1: 0.02, r2: 0.05 }
+      return byRatio(0.1976)
     case 2:
-      return { r1: 0.04, r2: 0.10 }
+      return byRatio(0.2312)
     case 3:
-      return { r1: 0.06, r2: 0.15 }
+      return byRatio(0.2648)
     case 4:
-      return { r1: 0.08, r2: 0.20 }
+      return byRatio(0.2984)
     case 5:
-      return { r1: 0.10, r2: 0.25 }
+      return byRatio(0.3320)
     case 6:
-      return { r1: 0.12, r2: 0.30 }
+      return byRatio(0.3656)
     case 7:
-      return { r1: 0.14, r2: 0.35 }
+      return byRatio(0.3992)
     case 8:
-      return { r1: 0.16, r2: 0.40 }
+      return byRatio(0.4328)
     case 9:
-      return { r1: 0.18, r2: 0.45 }
+      return byRatio(0.4664)
     case 10:
-      return { r1: 0.20, r2: 0.50 }
+      return byRatio(0.5000)
     default:
-      return { r1: 0.10, r2: 0.25 }
+      return byRatio(0.3320)
   }
 }
 
