@@ -1,8 +1,8 @@
 import 'react-app-polyfill/ie11';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { ContextProvider } from './components/Context';
-import AppSkeleton from './components/AppSkeleton';
+import { ContextProvider } from './Context';
+import AppSkeleton from './AppSkeleton';
 
 const App = () => {
   return (

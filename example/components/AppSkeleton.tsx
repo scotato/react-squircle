@@ -1,22 +1,18 @@
 import * as React from 'react';
-import Squircle from '../../.';
-import { Context } from './Context';
+import { SquircleMask } from '../../.';
 
 const Window = ({ children }) => {
-  const { state } = React.useContext(Context);
-
   return (
-    <Squircle p1={state.P1} p2={state.P2} className="app">
+    <SquircleMask c={1} className="app">
       {children}
-    </Squircle>
+    </SquircleMask>
   );
 };
 
 const Sidebar = ({ children }) => <div className="sidebar">{children}</div>;
 
 const Search = () => {
-  const { state } = React.useContext(Context);
-  return <Squircle p1={state.P1} p2={state.P2} className="search" />;
+  return <SquircleMask c={8} className="search" />;
 };
 
 const WindowControls = () => (
@@ -28,24 +24,22 @@ const WindowControls = () => (
 );
 
 const Menu = () => {
-  const { state } = React.useContext(Context);
   return (
     <div className="menu">
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
-      <Squircle p1={state.P1} p2={state.P2} className="menu-item" />
+      <SquircleMask c={8} className="menu-item" />
+      <SquircleMask c={8} className="menu-item" />
+      <SquircleMask c={8} className="menu-item" />
+      <SquircleMask c={8} className="menu-item" />
+      <SquircleMask c={8} className="menu-item" />
     </div>
   );
 };
 
 const User = () => {
-  const { state } = React.useContext(Context);
   return (
     <div className="user">
-      <Squircle p1={state.P1} p2={state.P2} className="user-avatar" />
-      <Squircle p1={state.P1} p2={state.P2} className="user-details" />
+      <SquircleMask c={8} className="user-avatar" />
+      <SquircleMask c={8} className="user-details" />
     </div>
   );
 };
@@ -53,22 +47,19 @@ const User = () => {
 const Body = ({ children }) => <div className="body">{children}</div>;
 
 const Banner = () => {
-  const { state } = React.useContext(Context);
-  return <Squircle p1={state.P1} p2={state.P2} className="banner" />;
+  return <SquircleMask c={2} className="banner" />;
 };
 const Features = ({ children }) => <div className="features">{children}</div>;
 const FeaturedItem = () => {
-  const { state } = React.useContext(Context);
-  return <Squircle p1={state.P1} p2={state.P2} className="featured-item" />;
+  return <SquircleMask c={3} className="featured-item" />;
 };
 const Category = ({ children }) => <div className="category">{children}</div>;
 const Items = ({ children }) => <div className="items">{children}</div>;
 const Item = () => {
-  const { state } = React.useContext(Context);
   return (
     <div className="item">
-      <Squircle p1={state.P1} p2={state.P2} className="item-image" />
-      <Squircle p1={state.P1} p2={state.P2} className="item-details" />
+      <SquircleMask c={7} className="item-image" />
+      <SquircleMask c={7} className="item-details" />
     </div>
   );
 };
