@@ -51,7 +51,7 @@ export function Squircle(
 }
 
 export function SquircleMask(
-  props: SquircleProps & React.HTMLAttributes<HTMLDivElement> & HTMLElement
+  props: SquircleProps & React.HTMLAttributes<HTMLDivElement>
 ) {
   const [ref, bounds] = useMeasure();
   const {
