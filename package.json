@@ -1,4 +1,9 @@
 {
+  "name": "@scotato/react-squircle",
+  "author": "Scott Dodge",
+  "description": "Create squircles and squircle masks in React",
+  "repository": "https://github.com/scotato/react-squircle",
+  "bugs": "https://github.com/scotato/react-squircle/issues",
   "version": "1.1.2",
   "license": "MIT",
   "main": "dist/index.js",
@@ -35,8 +40,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@scotato/react-squircle",
-  "author": "Scott Dodge",
   "module": "dist/react-squircle.esm.js",
   "size-limit": [
     {
